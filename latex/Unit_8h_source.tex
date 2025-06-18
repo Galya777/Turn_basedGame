@@ -1,0 +1,115 @@
+\doxysection{Unit.\+h}
+\hypertarget{Unit_8h_source}{}\label{Unit_8h_source}\index{CLionProjects/Turn-\/basedGame/GameUnits/Basics/Unit.h@{CLionProjects/Turn-\/basedGame/GameUnits/Basics/Unit.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Unit.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_UNIT\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_UNIT\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../../Weapons/Health.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Weapons/Armors/Armor.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../Weapons/Ability.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classArmor}{Armor}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAbility}{Ability}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUnit}{Unit}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classUnit}{Unit}}(\textcolor{keywordtype}{int}\ hp,\ \mbox{\hyperlink{classArmor}{Armor}}*\ arm,\ \textcolor{keywordtype}{int}\ goldCos)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ :\ health(hp),\ armor(arm\ ?\ arm-\/>clone()\ :\ \textcolor{keyword}{nullptr}),\ goldCost(goldCos)\ \{\}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ Rule\ of\ 3:\ Копи\ конструктор}}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classUnit}{Unit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classUnit}{Unit}}\&\ other)}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ :\ health(other.health),\ armor(other.armor\ ?\ other.armor-\/>clone()\ :\ \textcolor{keyword}{nullptr}),}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ goldCost(other.goldCost)\{\}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Rule\ of\ 3:\ Копиращо\ присвояване}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classUnit}{Unit}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classUnit}{Unit}}\&\ other)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ health\ =\ other.health;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ armor;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ armor\ =\ other.armor\ ?\ other.armor-\/>clone()\ :\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Rule\ of\ 3:\ Деструктор}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classUnit}{\string~Unit}}()\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ armor;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classUnit}{Unit}}*\ clone()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ hasManaAttribute()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00040\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ getMana()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ -\/1;\ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setMana(\textcolor{keywordtype}{int}\ m)\ \{\}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ increaseMana(\textcolor{keywordtype}{int}\ amount)\ \{\}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Полиморфни\ методи\ (ще\ се\ имплементират\ в\ наследници)}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ attack(\mbox{\hyperlink{classUnit}{Unit}}\&\ target)\ =\ 0;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ getType()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ isAlive()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ health.getCurrent()\ >\ 0;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ takeDamage(\textcolor{keywordtype}{int}\ dmg)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ reduced\ =\ reduceDamage(dmg);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ health.reduce(reduced);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ reduceDamage(\textcolor{keywordtype}{int}\ baseDamage)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (armor\ \&\&\ !armor-\/>isUsable())\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Armor\ is\ destroyed!\(\backslash\)n"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (armor\ \&\&\ armor-\/>isUsable())}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ armor-\/>absorbDamage(baseDamage)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ baseDamage;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ heal(\textcolor{keywordtype}{int}\ amount)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ health.heal(amount);}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{classHealth}{Health}}\&\ getHealth()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ health;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classHealth}{Health}}\&\ getHealth()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ health;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ getHP()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ health.getCurrent();}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ getGoldCost()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ goldCost;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ setHP(\textcolor{keywordtype}{int}\ newHP)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ health.setMax(newHP);}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ setGoldCost(\textcolor{keywordtype}{int}\ newGoldCost)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ goldCost\ =\ newGoldCost;}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classArmor}{Armor}}*\ getArmor()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ armor;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ Сетър\ с\ правилно\ управление\ на\ паметта}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ setArmor(\mbox{\hyperlink{classArmor}{Armor}}*\ newArmor)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (armor\ !=\ newArmor)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ armor;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ armor\ =\ newArmor\ ?\ newArmor-\/>clone()\ :\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ goldCost;}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classHealth}{Health}}\ health;}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{classArmor}{Armor}}*\ armor;}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TURN\_BASEDGAME\_UNIT\_H}}
+
+\end{DoxyCode}

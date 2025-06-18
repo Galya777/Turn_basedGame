@@ -1,0 +1,137 @@
+\doxysection{Skeleton Class Reference}
+\hypertarget{classSkeleton}{}\label{classSkeleton}\index{Skeleton@{Skeleton}}
+
+
+Inheritance diagram for Skeleton\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{classSkeleton__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Skeleton\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classSkeleton__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classSkeleton_a4f0c7d7b3b6c3b5e0af419c814421caa}{clone}} () const override
+\item 
+void \mbox{\hyperlink{classSkeleton_a516b1686b1a7ada32e5b6d8649b2cd31}{attack}} (\mbox{\hyperlink{classUnit}{Unit}} \&target) override
+\item 
+std\+::string \mbox{\hyperlink{classSkeleton_a30dc9078e3e98cbd076f22438c72553d}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classPureUndead}{Pure\+Undead}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Pure\+Undead} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cost)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUndeadUnit}{Undead\+Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Undead\+Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold, int mana=-\/1)
+\item 
+bool \mbox{\hyperlink{classUndeadUnit_a23ed7f364dd77d954f8b4ba5a39ba6a9}{has\+Mana\+Attribute}} () const override
+\item 
+int \mbox{\hyperlink{classUndeadUnit_a29430e8bde70cb58ff6d416dfd6fc303}{get\+Mana}} () const override
+\item 
+void \mbox{\hyperlink{classUndeadUnit_a86b3b27634c4524f9d36a11089753862}{set\+Mana}} (int m) override
+\item 
+void \mbox{\hyperlink{classUndeadUnit_af827072c68ff8b2ad806bd7cafdbc99f}{increase\+Mana}} (int amount) override
+\item 
+std\+::string \mbox{\hyperlink{classUndeadUnit_a87345edd8a575f84d81e9b4a230339bf}{get\+Type}} () const override
+\item 
+void \mbox{\hyperlink{classUndeadUnit_a6293eb11ef7c978783f20955737c857a}{attack}} (\mbox{\hyperlink{classUnit}{Unit}} \&target) override
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classUndeadUnit_a56348820fae7b8610818db3c5b2de785}{clone}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cos)
+\item 
+{\bfseries Unit} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \& {\bfseries operator=} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+virtual bool {\bfseries is\+Alive} () const
+\item 
+virtual void {\bfseries take\+Damage} (int dmg)
+\item 
+int {\bfseries reduce\+Damage} (int base\+Damage)
+\item 
+virtual void {\bfseries heal} (int amount)
+\item 
+\mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} ()
+\item 
+const \mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} () const
+\item 
+int {\bfseries get\+HP} () const
+\item 
+int {\bfseries get\+Gold\+Cost} () const
+\item 
+void {\bfseries set\+HP} (int new\+HP)
+\item 
+void {\bfseries set\+Gold\+Cost} (int new\+Gold\+Cost)
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Armor} () const
+\item 
+void {\bfseries set\+Armor} (\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}new\+Armor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries gold\+Cost}
+\item 
+\mbox{\hyperlink{classHealth}{Health}} {\bfseries health}
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries armor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSkeleton_a516b1686b1a7ada32e5b6d8649b2cd31}\label{classSkeleton_a516b1686b1a7ada32e5b6d8649b2cd31} 
+\index{Skeleton@{Skeleton}!attack@{attack}}
+\index{attack@{attack}!Skeleton@{Skeleton}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Skeleton\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUnit}{Unit}} \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classPureUndead}{Pure\+Undead}}.
+
+\Hypertarget{classSkeleton_a4f0c7d7b3b6c3b5e0af419c814421caa}\label{classSkeleton_a4f0c7d7b3b6c3b5e0af419c814421caa} 
+\index{Skeleton@{Skeleton}!clone@{clone}}
+\index{clone@{clone}!Skeleton@{Skeleton}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} Skeleton\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classUnit}{Unit}}.
+
+\Hypertarget{classSkeleton_a30dc9078e3e98cbd076f22438c72553d}\label{classSkeleton_a30dc9078e3e98cbd076f22438c72553d} 
+\index{Skeleton@{Skeleton}!getType@{getType}}
+\index{getType@{getType}!Skeleton@{Skeleton}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Skeleton\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classPureUndead}{Pure\+Undead}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Not\+Alive\+Units/Skeleton.\+h\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Not\+Alive\+Units/Skeleton.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\doxysection{Undead\+Caster.\+h}
+\hypertarget{UndeadCaster_8h_source}{}\label{UndeadCaster_8h_source}\index{CLionProjects/Turn-\/basedGame/GameUnits/NotAliveUnits/UndeadCaster.h@{CLionProjects/Turn-\/basedGame/GameUnits/NotAliveUnits/UndeadCaster.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ galya777\ on\ 08.06.25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_UNDEADCASTER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_UNDEADCASTER\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}UndeadTypes.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../Weapons/Armors/Armor.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUndeadCaster}{UndeadCaster}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classUndeadUnit}{UndeadUnit}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ mana;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classUndeadCaster}{UndeadCaster}}(\textcolor{keywordtype}{int}\ hp,\ \mbox{\hyperlink{classArmor}{Armor}}*\ armor,\ \textcolor{keywordtype}{int}\ goldCost,\ \textcolor{keywordtype}{int}\ manaAmount)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classUndeadUnit}{UndeadUnit}}(hp,\ armor,\ goldCost),\ mana(manaAmount)\ \{\}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ useMana(\textcolor{keywordtype}{int}\ amount)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (amount\ <=\ mana)\ mana\ -\/=\ amount;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Not\ enough\ mana!"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classUnit}{Unit}}*\ clone()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classUndeadCaster}{UndeadCaster}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ getMana()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mana;\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classUndeadCaster}{\string~UndeadCaster}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_UNDEADCASTER\_H}}
+
+\end{DoxyCode}

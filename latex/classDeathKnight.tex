@@ -1,0 +1,177 @@
+\doxysection{Death\+Knight Class Reference}
+\hypertarget{classDeathKnight}{}\label{classDeathKnight}\index{DeathKnight@{DeathKnight}}
+
+
+Inheritance diagram for Death\+Knight\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classDeathKnight__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Death\+Knight\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classDeathKnight__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classDeathKnight_a2b487da46b7f9efbb39b68f5d513a0d0}\label{classDeathKnight_a2b487da46b7f9efbb39b68f5d513a0d0} 
+{\bfseries Death\+Knight} (const std\+::string \&name)
+\item 
+\mbox{\hyperlink{classComander}{Comander}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDeathKnight_a8edb81b6f773bc147e35852f423d473f}{clone}} () const override
+\item 
+std\+::string \mbox{\hyperlink{classDeathKnight_adac948eada51419a5e5811e2e3d8e7cd}{get\+Commander\+Type}} () const override
+\item 
+bool \mbox{\hyperlink{classDeathKnight_ab416766b811236ce331f2f5125a044ad}{can\+Use\+Ability}} () const override
+\item 
+void \mbox{\hyperlink{classDeathKnight_a8baaa199eb22acd8281b26db8195ea6f}{use\+Ability}} (std\+::vector$<$ \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} $>$ \&allies, std\+::vector$<$ \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} $>$ \&) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComander}{Comander}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Comander} (std\+::string name, int hp, int mana, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}armor, int gold\+Cost, int attack\+Power)
+\item 
+{\bfseries Comander} (const \mbox{\hyperlink{classComander}{Comander}} \&other)
+\item 
+\mbox{\hyperlink{classComander}{Comander}} \& {\bfseries operator=} (const \mbox{\hyperlink{classComander}{Comander}} \&other)
+\item 
+const std\+::string \& {\bfseries get\+Name} () const
+\item 
+int \mbox{\hyperlink{classComander_a1768b50541d43e54aea098ecbd4e542b}{get\+Mana}} () const
+\item 
+void {\bfseries reduce\+Mana} (int amount)
+\item 
+void \mbox{\hyperlink{classComander_a4038ef2324d880eafaefcbc206e2afc6}{increase\+Mana}} (int amount)
+\item 
+int {\bfseries get\+Attack\+Power} () const
+\item 
+void \mbox{\hyperlink{classComander_ab270205e496106757bf295db10c2287a}{attack}} (\mbox{\hyperlink{classUnit}{Unit}} \&target) override
+\item 
+std\+::string \mbox{\hyperlink{classComander_a6c410a8f384109a1e8dcc59470849f1a}{get\+Type}} () const override
+\item 
+void {\bfseries add\+Unit} (\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*}unit)
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} $>$ \& {\bfseries get\+Controlled\+Units} () const
+\item 
+std\+::string {\bfseries serialize} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cos)
+\item 
+{\bfseries Unit} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \& {\bfseries operator=} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+virtual bool {\bfseries has\+Mana\+Attribute} () const
+\item 
+virtual void {\bfseries set\+Mana} (int m)
+\item 
+virtual bool {\bfseries is\+Alive} () const
+\item 
+virtual void {\bfseries take\+Damage} (int dmg)
+\item 
+int {\bfseries reduce\+Damage} (int base\+Damage)
+\item 
+virtual void {\bfseries heal} (int amount)
+\item 
+\mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} ()
+\item 
+const \mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} () const
+\item 
+int {\bfseries get\+HP} () const
+\item 
+int {\bfseries get\+Gold\+Cost} () const
+\item 
+void {\bfseries set\+HP} (int new\+HP)
+\item 
+void {\bfseries set\+Gold\+Cost} (int new\+Gold\+Cost)
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Armor} () const
+\item 
+void {\bfseries set\+Armor} (\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}new\+Armor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classComander}{Comander}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classComander}{Comander}} \texorpdfstring{$\ast$}{*} {\bfseries deserialize} (const std\+::string \&data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classComander}{Comander}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries name}
+\item 
+int {\bfseries mana}
+\item 
+int {\bfseries attack\+Power}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries controlled\+Units}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries gold\+Cost}
+\item 
+\mbox{\hyperlink{classHealth}{Health}} {\bfseries health}
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries armor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDeathKnight_ab416766b811236ce331f2f5125a044ad}\label{classDeathKnight_ab416766b811236ce331f2f5125a044ad} 
+\index{DeathKnight@{DeathKnight}!canUseAbility@{canUseAbility}}
+\index{canUseAbility@{canUseAbility}!DeathKnight@{DeathKnight}}
+\doxysubsubsection{\texorpdfstring{canUseAbility()}{canUseAbility()}}
+{\footnotesize\ttfamily bool Death\+Knight\+::can\+Use\+Ability (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classComander}{Comander}}.
+
+\Hypertarget{classDeathKnight_a8edb81b6f773bc147e35852f423d473f}\label{classDeathKnight_a8edb81b6f773bc147e35852f423d473f} 
+\index{DeathKnight@{DeathKnight}!clone@{clone}}
+\index{clone@{clone}!DeathKnight@{DeathKnight}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComander}{Comander}} \texorpdfstring{$\ast$}{*} Death\+Knight\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classComander}{Comander}}.
+
+\Hypertarget{classDeathKnight_adac948eada51419a5e5811e2e3d8e7cd}\label{classDeathKnight_adac948eada51419a5e5811e2e3d8e7cd} 
+\index{DeathKnight@{DeathKnight}!getCommanderType@{getCommanderType}}
+\index{getCommanderType@{getCommanderType}!DeathKnight@{DeathKnight}}
+\doxysubsubsection{\texorpdfstring{getCommanderType()}{getCommanderType()}}
+{\footnotesize\ttfamily std\+::string Death\+Knight\+::get\+Commander\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classComander}{Comander}}.
+
+\Hypertarget{classDeathKnight_a8baaa199eb22acd8281b26db8195ea6f}\label{classDeathKnight_a8baaa199eb22acd8281b26db8195ea6f} 
+\index{DeathKnight@{DeathKnight}!useAbility@{useAbility}}
+\index{useAbility@{useAbility}!DeathKnight@{DeathKnight}}
+\doxysubsubsection{\texorpdfstring{useAbility()}{useAbility()}}
+{\footnotesize\ttfamily void Death\+Knight\+::use\+Ability (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} $>$ \&}]{allies,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} $>$ \&}]{,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classComander}{Comander}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Comanders/Death\+Knight.\+h\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Comanders/Death\+Knight.\+cpp\end{DoxyCompactItemize}

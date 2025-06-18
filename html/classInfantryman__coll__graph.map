@@ -1,0 +1,13 @@
+<map id="Infantryman" name="Infantryman">
+<area shape="rect" id="Node000001" title=" " alt="" coords="73,256,176,281"/>
+<area shape="rect" id="Node000002" href="$classLivingUnit.html" title=" " alt="" coords="81,181,169,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,221,127,256,122,256,122,221"/>
+<area shape="rect" id="Node000003" href="$classUnit.html" title=" " alt="" coords="57,93,107,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="96,130,121,180,116,182,91,132"/>
+<area shape="rect" id="Node000004" href="$classHealth.html" title=" " alt="" coords="5,5,71,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="45,44,54,68,72,92,68,95,49,71,40,45"/>
+<area shape="rect" id="Node000005" href="$classArmor.html" title=" " alt="" coords="95,5,157,31"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="116,44,90,94,86,92,111,42"/>
+<area shape="rect" id="Node000006" href="$classWeapon.html" title=" " alt="" coords="131,93,206,119"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="159,132,133,182,128,180,154,130"/>
+</map>

@@ -1,0 +1,54 @@
+\doxysection{Dread\+Lord.\+h}
+\hypertarget{DreadLord_8h_source}{}\label{DreadLord_8h_source}\index{CLionProjects/Turn-\/basedGame/GameUnits/Comanders/DreadLord.h@{CLionProjects/Turn-\/basedGame/GameUnits/Comanders/DreadLord.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ galya777\ on\ 09.06.25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ DreadLord.h}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_DREADLORD\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_DREADLORD\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Comander.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../NotAliveUnits/Necromancer.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../NotAliveUnits/Gul.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../../Weapons/Armors/HeavyArmor.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDreadLord}{DreadLord}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComander}{Comander}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classDreadLord}{DreadLord}}(\textcolor{keyword}{const}\ std::string\&\ name)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classComander}{Comander}}(name,\ 3000,\ 2000,\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classHeavyArmor}{HeavyArmor}}(20),\ 300,\ 200)\ \{\}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ getCommanderType()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}DreadLord"{}};}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ canUseAbility()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mana\ >=\ 400;\ \textcolor{comment}{//\ Най-\/малката\ цена\ за\ призоваване}}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ useAbility(std::vector<Unit*>\&\ allies,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Unit*>\&\ \textcolor{comment}{/*\ enemies\ */},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Unit*>\&\ \textcolor{comment}{/*\ fallenAllies\ */})\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mana\ >=\ 900)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ allies.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{classNecromancer}{Necromancer}}());}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ allies.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{classGul}{Gul}}());}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ reduceMana(900);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (mana\ >=\ 500)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ allies.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{classGul}{Gul}}());}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ reduceMana(500);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (mana\ >=\ 400)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ allies.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{classNecromancer}{Necromancer}}());}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ reduceMana(400);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classUnit}{Unit}}*\ clone()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classDreadLord}{DreadLord}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_DREADLORD\_H}}
+
+\end{DoxyCode}

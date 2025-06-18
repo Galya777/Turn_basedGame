@@ -1,0 +1,41 @@
+\doxysection{Firearm.\+h}
+\hypertarget{Firearm_8h_source}{}\label{Firearm_8h_source}\index{CLionProjects/Turn-\/basedGame/Weapons/Firearm.h@{CLionProjects/Turn-\/basedGame/Weapons/Firearm.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ galya777\ on\ 11.05.25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_FIREARM\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_FIREARM\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Firearm.h}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Weapon.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{enum\ class}\ FirearmType\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ BOW,}
+\DoxyCodeLine{00014\ \ \ \ \ GUN,}
+\DoxyCodeLine{00015\ \ \ \ \ CROSSBOW,}
+\DoxyCodeLine{00016\ \ \ \ \ MUSKET,}
+\DoxyCodeLine{00017\ \ \ \ \ FLINTLOCK,}
+\DoxyCodeLine{00018\ \ \ \ \ RIFLE}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFirearm}{Firearm}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classWeapon}{Weapon}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classFirearm}{Firearm}}(\textcolor{keywordtype}{int}\ dmg,\ std::string\ n)\ :\ damage(dmg),\ name(std::move(n))\ \{\}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ getDamage()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ damage;\ \}}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ getName()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ name;\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ damage;}
+\DoxyCodeLine{00030\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_FIREARM\_H}}
+
+\end{DoxyCode}

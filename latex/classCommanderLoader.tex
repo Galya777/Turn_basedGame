@@ -1,0 +1,34 @@
+\doxysection{Commander\+Loader Class Reference}
+\hypertarget{classCommanderLoader}{}\label{classCommanderLoader}\index{CommanderLoader@{CommanderLoader}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCommanderLoader_a65b7d46cfc636f3b988a1202a87b1930}\label{classCommanderLoader_a65b7d46cfc636f3b988a1202a87b1930} 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries create\+Armor} (const std\+::string \&name)
+\item 
+\Hypertarget{classCommanderLoader_a282782854367145a5ac62ccc5c44cbe9}\label{classCommanderLoader_a282782854367145a5ac62ccc5c44cbe9} 
+\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} {\bfseries create\+Unit} (const std\+::string \&unit\+Type)
+\item 
+\Hypertarget{classCommanderLoader_a92a3f39ba6c94165ea7e646deb0d0cc1}\label{classCommanderLoader_a92a3f39ba6c94165ea7e646deb0d0cc1} 
+void {\bfseries assign\+Units\+To\+Commander} (\mbox{\hyperlink{classComander}{Comander}} \texorpdfstring{$\ast$}{*}commander, const std\+::vector$<$ std\+::string $>$ \&unit\+Types)
+\item 
+\Hypertarget{classCommanderLoader_a0e1eb215a7ecbcbfbe691a6cd4978d97}\label{classCommanderLoader_a0e1eb215a7ecbcbfbe691a6cd4978d97} 
+bool {\bfseries commander\+Name\+Exists} (const std\+::string \&name)
+\item 
+\Hypertarget{classCommanderLoader_a2c7db5971117b85edb147c7dd8eba161}\label{classCommanderLoader_a2c7db5971117b85edb147c7dd8eba161} 
+void {\bfseries parse\+Commander\+Line} (const std\+::string \&line, bool is\+Living)
+\item 
+\Hypertarget{classCommanderLoader_a687b1059d12b2f86256f371c77c10886}\label{classCommanderLoader_a687b1059d12b2f86256f371c77c10886} 
+void {\bfseries load\+Commanders\+From\+File} (const std\+::string \&filename, bool is\+Living)
+\item 
+\Hypertarget{classCommanderLoader_a60cb83818e1446e68263d34b230f906e}\label{classCommanderLoader_a60cb83818e1446e68263d34b230f906e} 
+const std\+::vector$<$ \mbox{\hyperlink{classComander}{Comander}} \texorpdfstring{$\ast$}{*} $>$ \& {\bfseries get\+Living\+Commanders} () const
+\item 
+\Hypertarget{classCommanderLoader_a5c92a22f9ec1d9f1e9c627734772fee3}\label{classCommanderLoader_a5c92a22f9ec1d9f1e9c627734772fee3} 
+const std\+::vector$<$ \mbox{\hyperlink{classComander}{Comander}} \texorpdfstring{$\ast$}{*} $>$ \& {\bfseries get\+Undead\+Commanders} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/Config\+Loader.\+h\end{DoxyCompactItemize}

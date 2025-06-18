@@ -1,0 +1,59 @@
+\doxysection{Living\+Unit.\+h}
+\hypertarget{LivingUnit_8h_source}{}\label{LivingUnit_8h_source}\index{CLionProjects/Turn-\/basedGame/GameUnits/AliveUnits/LivingUnit.h@{CLionProjects/Turn-\/basedGame/GameUnits/AliveUnits/LivingUnit.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ galya777\ on\ 11.05.25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_LIVINGUNIT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_LIVINGUNIT\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../Basics/Unit.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../../Weapons/Weapon.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLivingUnit}{LivingUnit}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classUnit}{Unit}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classLivingUnit}{LivingUnit}}(\textcolor{keywordtype}{int}\ hp,\ \mbox{\hyperlink{classArmor}{Armor}}*\ arm,\textcolor{keywordtype}{int}\ goldCost,\ \mbox{\hyperlink{classWeapon}{Weapon}}*\ weap\ =\ \textcolor{keyword}{nullptr},\ \ \textcolor{keywordtype}{int}\ mana\ =\ -\/1)}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classUnit}{Unit}}(hp,\ arm,\ goldCost),\ weapon(weap),\ hasMana(mana\ >=\ 0),\ manaPoints(mana)\ \{\}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classLivingUnit}{\string~LivingUnit}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ weapon;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}*\ ability\ :\ abilities)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ ability;}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasManaAttribute()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ hasMana;\ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ getMana()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ hasMana\ ?\ manaPoints\ :\ -\/1;\ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ setMana(\textcolor{keywordtype}{int}\ m)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\ <\ 0)\ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Mana\ cannot\ be\ negative"{}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ manaPoints\ =\ m;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ hasMana\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classUnit}{Unit}}*\ clone()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classLivingUnit}{LivingUnit}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ attack(\mbox{\hyperlink{classUnit}{Unit}}\&\ target)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ getType()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Living"{}};\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Ability*>\ abilities;}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classWeapon}{Weapon}}*\ weapon\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasMana;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ manaPoints;}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_LIVINGUNIT\_H}}
+
+\end{DoxyCode}

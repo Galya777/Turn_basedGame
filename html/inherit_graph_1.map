@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classArmor.html" title=" " alt="" coords="5,80,68,105"/>
+<area shape="rect" id="Node000001" href="$classHeavyArmor.html" title=" " alt="" coords="121,5,225,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="66,70,115,40,138,28,141,33,117,44,69,74"/>
+<area shape="rect" id="Node000002" href="$classLeatherArmor.html" title=" " alt="" coords="118,55,229,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="81,82,117,75,118,80,82,87"/>
+<area shape="rect" id="Node000003" href="$classMediumArmor.html" title=" " alt="" coords="116,104,231,129"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="82,98,116,104,115,109,81,103"/>
+<area shape="rect" id="Node000004" href="$classUnarmored.html" title=" " alt="" coords="126,153,221,179"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="70,111,117,138,143,151,141,156,115,143,68,115"/>
+</map>

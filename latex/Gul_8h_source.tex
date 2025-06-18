@@ -1,0 +1,31 @@
+\doxysection{Gul.\+h}
+\hypertarget{Gul_8h_source}{}\label{Gul_8h_source}\index{CLionProjects/Turn-\/basedGame/GameUnits/NotAliveUnits/Gul.h@{CLionProjects/Turn-\/basedGame/GameUnits/NotAliveUnits/Gul.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ galya777\ on\ 08.06.25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_GUL\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_GUL\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}UndeadTypes.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../Weapons/Armors/HeavyArmor.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGul}{Gul}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classPureUndead}{PureUndead}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classGul}{Gul}}();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ attack(\mbox{\hyperlink{classUnit}{Unit}}\&\ target)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ getType()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Gul"{}};\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classUnit}{Unit}}*\ clone()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classGul}{Gul}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_GUL\_H}}
+
+\end{DoxyCode}

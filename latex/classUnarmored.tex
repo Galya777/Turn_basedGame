@@ -1,0 +1,94 @@
+\doxysection{Unarmored Class Reference}
+\hypertarget{classUnarmored}{}\label{classUnarmored}\index{Unarmored@{Unarmored}}
+
+
+Inheritance diagram for Unarmored\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classUnarmored__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Unarmored\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classUnarmored__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classUnarmored_a3873e248d7757a2ebc0d08de297886bb}{get\+Reduction\+Factor}} () const override
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classUnarmored_adf0baf34cfb67e0d9453e3e2f5e31257}{clone}} () const override
+\item 
+void \mbox{\hyperlink{classUnarmored_a4e7508a393ca5c8de8aaaf515a110a8b}{on\+Hit}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classArmor}{Armor}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Armor} (Armor\+Type type, int durability)
+\item 
+void {\bfseries degrade} ()
+\item 
+bool {\bfseries is\+Usable} () const
+\item 
+int {\bfseries reduce\+Damage} (int dmg)
+\item 
+int {\bfseries absorb\+Damage} (int dmg)
+\item 
+int {\bfseries get\+Durability} () const
+\item 
+Armor\+Type {\bfseries get\+Type} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classArmor}{Armor}}}
+\begin{DoxyCompactItemize}
+\item 
+Armor\+Type {\bfseries type}
+\item 
+int {\bfseries durability}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classUnarmored_adf0baf34cfb67e0d9453e3e2f5e31257}\label{classUnarmored_adf0baf34cfb67e0d9453e3e2f5e31257} 
+\index{Unarmored@{Unarmored}!clone@{clone}}
+\index{clone@{clone}!Unarmored@{Unarmored}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} Unarmored\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classArmor}{Armor}}.
+
+\Hypertarget{classUnarmored_a3873e248d7757a2ebc0d08de297886bb}\label{classUnarmored_a3873e248d7757a2ebc0d08de297886bb} 
+\index{Unarmored@{Unarmored}!getReductionFactor@{getReductionFactor}}
+\index{getReductionFactor@{getReductionFactor}!Unarmored@{Unarmored}}
+\doxysubsubsection{\texorpdfstring{getReductionFactor()}{getReductionFactor()}}
+{\footnotesize\ttfamily float Unarmored\+::get\+Reduction\+Factor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classArmor}{Armor}}.
+
+\Hypertarget{classUnarmored_a4e7508a393ca5c8de8aaaf515a110a8b}\label{classUnarmored_a4e7508a393ca5c8de8aaaf515a110a8b} 
+\index{Unarmored@{Unarmored}!onHit@{onHit}}
+\index{onHit@{onHit}!Unarmored@{Unarmored}}
+\doxysubsubsection{\texorpdfstring{onHit()}{onHit()}}
+{\footnotesize\ttfamily void Unarmored\+::on\+Hit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classArmor}{Armor}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Weapons/\+Armors/Unarmored.\+h\end{DoxyCompactItemize}

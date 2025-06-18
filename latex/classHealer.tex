@@ -1,0 +1,133 @@
+\doxysection{Healer Class Reference}
+\hypertarget{classHealer}{}\label{classHealer}\index{Healer@{Healer}}
+
+
+Inheritance diagram for Healer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{classHealer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Healer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classHealer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classHealer_a4d0d6b4327e76558cd4e69dc05b9a8d9}{get\+Type}} () const override
+\item 
+\Hypertarget{classHealer_a5899c03cf977db0e7ed4a60a8d41fd42}\label{classHealer_a5899c03cf977db0e7ed4a60a8d41fd42} 
+void {\bfseries heal} (\mbox{\hyperlink{classLivingUnit}{Living\+Unit}} \&target)
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classHealer_a5a35f917469ec8ef3aeef56e1251dbc7}{clone}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLivingUnit}{Living\+Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Living\+Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cost, \mbox{\hyperlink{classWeapon}{Weapon}} \texorpdfstring{$\ast$}{*}weap=nullptr, int mana=-\/1)
+\item 
+bool \mbox{\hyperlink{classLivingUnit_a800e698193edb4c9a700f94c228ca2cb}{has\+Mana\+Attribute}} () const
+\item 
+int \mbox{\hyperlink{classLivingUnit_ab9645b68703c55815e7ad41c0c91c752}{get\+Mana}} () const
+\item 
+void \mbox{\hyperlink{classLivingUnit_acab8f4f13a63fa3c17b05103662a11b5}{set\+Mana}} (int m)
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classLivingUnit_a4df2250f78ce277c4353c0d49613053a}{clone}} () const override
+\item 
+void \mbox{\hyperlink{classLivingUnit_a28825cb9e956454a97d70754a6dd9726}{attack}} (\mbox{\hyperlink{classUnit}{Unit}} \&target) override
+\item 
+std\+::string \mbox{\hyperlink{classLivingUnit_aefd7e56f064ed8aba0d4116cff43b48c}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cos)
+\item 
+{\bfseries Unit} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \& {\bfseries operator=} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+virtual void {\bfseries increase\+Mana} (int amount)
+\item 
+virtual bool {\bfseries is\+Alive} () const
+\item 
+virtual void {\bfseries take\+Damage} (int dmg)
+\item 
+int {\bfseries reduce\+Damage} (int base\+Damage)
+\item 
+virtual void {\bfseries heal} (int amount)
+\item 
+\mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} ()
+\item 
+const \mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} () const
+\item 
+int {\bfseries get\+HP} () const
+\item 
+int {\bfseries get\+Gold\+Cost} () const
+\item 
+void {\bfseries set\+HP} (int new\+HP)
+\item 
+void {\bfseries set\+Gold\+Cost} (int new\+Gold\+Cost)
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Armor} () const
+\item 
+void {\bfseries set\+Armor} (\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}new\+Armor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classLivingUnit}{Living\+Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classAbility}{Ability}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries abilities}
+\item 
+\mbox{\hyperlink{classWeapon}{Weapon}} \texorpdfstring{$\ast$}{*} {\bfseries weapon} = nullptr
+\item 
+bool {\bfseries has\+Mana}
+\item 
+int {\bfseries mana\+Points}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries gold\+Cost}
+\item 
+\mbox{\hyperlink{classHealth}{Health}} {\bfseries health}
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries armor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classHealer_a5a35f917469ec8ef3aeef56e1251dbc7}\label{classHealer_a5a35f917469ec8ef3aeef56e1251dbc7} 
+\index{Healer@{Healer}!clone@{clone}}
+\index{clone@{clone}!Healer@{Healer}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} Healer\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classUnit}{Unit}}.
+
+\Hypertarget{classHealer_a4d0d6b4327e76558cd4e69dc05b9a8d9}\label{classHealer_a4d0d6b4327e76558cd4e69dc05b9a8d9} 
+\index{Healer@{Healer}!getType@{getType}}
+\index{getType@{getType}!Healer@{Healer}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Healer\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classUnit}{Unit}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Alive\+Units/Healer.\+h\end{DoxyCompactItemize}

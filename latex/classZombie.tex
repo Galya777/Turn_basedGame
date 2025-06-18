@@ -1,0 +1,131 @@
+\doxysection{Zombie Class Reference}
+\hypertarget{classZombie}{}\label{classZombie}\index{Zombie@{Zombie}}
+
+
+Inheritance diagram for Zombie\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classZombie__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Zombie\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classZombie__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classZombie_a8313686e36ca5b8905c731a4aa9fdabb}{clone}} () const override
+\item 
+void \mbox{\hyperlink{classZombie_a40a521952fded65ce45cd13af8a50c96}{attack}} (\mbox{\hyperlink{classUnit}{Unit}} \&target) override
+\item 
+std\+::string \mbox{\hyperlink{classZombie_a45f73f42e963598158e7adc27a71fe29}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classRaisedUndead}{Raised\+Undead}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Raised\+Undead} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cost)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUndeadUnit}{Undead\+Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Undead\+Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold, int mana=-\/1)
+\item 
+bool \mbox{\hyperlink{classUndeadUnit_a23ed7f364dd77d954f8b4ba5a39ba6a9}{has\+Mana\+Attribute}} () const override
+\item 
+int \mbox{\hyperlink{classUndeadUnit_a29430e8bde70cb58ff6d416dfd6fc303}{get\+Mana}} () const override
+\item 
+void \mbox{\hyperlink{classUndeadUnit_a86b3b27634c4524f9d36a11089753862}{set\+Mana}} (int m) override
+\item 
+void \mbox{\hyperlink{classUndeadUnit_af827072c68ff8b2ad806bd7cafdbc99f}{increase\+Mana}} (int amount) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cos)
+\item 
+{\bfseries Unit} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \& {\bfseries operator=} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+virtual bool {\bfseries is\+Alive} () const
+\item 
+virtual void {\bfseries take\+Damage} (int dmg)
+\item 
+int {\bfseries reduce\+Damage} (int base\+Damage)
+\item 
+virtual void {\bfseries heal} (int amount)
+\item 
+\mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} ()
+\item 
+const \mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} () const
+\item 
+int {\bfseries get\+HP} () const
+\item 
+int {\bfseries get\+Gold\+Cost} () const
+\item 
+void {\bfseries set\+HP} (int new\+HP)
+\item 
+void {\bfseries set\+Gold\+Cost} (int new\+Gold\+Cost)
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Armor} () const
+\item 
+void {\bfseries set\+Armor} (\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}new\+Armor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries gold\+Cost}
+\item 
+\mbox{\hyperlink{classHealth}{Health}} {\bfseries health}
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries armor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classZombie_a40a521952fded65ce45cd13af8a50c96}\label{classZombie_a40a521952fded65ce45cd13af8a50c96} 
+\index{Zombie@{Zombie}!attack@{attack}}
+\index{attack@{attack}!Zombie@{Zombie}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Zombie\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUnit}{Unit}} \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classRaisedUndead}{Raised\+Undead}}.
+
+\Hypertarget{classZombie_a8313686e36ca5b8905c731a4aa9fdabb}\label{classZombie_a8313686e36ca5b8905c731a4aa9fdabb} 
+\index{Zombie@{Zombie}!clone@{clone}}
+\index{clone@{clone}!Zombie@{Zombie}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} Zombie\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classUndeadUnit}{Undead\+Unit}}.
+
+\Hypertarget{classZombie_a45f73f42e963598158e7adc27a71fe29}\label{classZombie_a45f73f42e963598158e7adc27a71fe29} 
+\index{Zombie@{Zombie}!getType@{getType}}
+\index{getType@{getType}!Zombie@{Zombie}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Zombie\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classRaisedUndead}{Raised\+Undead}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Not\+Alive\+Units/Zombi.\+h\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Not\+Alive\+Units/Zombi.\+cpp\end{DoxyCompactItemize}

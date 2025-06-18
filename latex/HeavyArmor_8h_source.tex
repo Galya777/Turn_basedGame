@@ -1,0 +1,35 @@
+\doxysection{Heavy\+Armor.\+h}
+\hypertarget{HeavyArmor_8h_source}{}\label{HeavyArmor_8h_source}\index{CLionProjects/Turn-\/basedGame/Weapons/Armors/HeavyArmor.h@{CLionProjects/Turn-\/basedGame/Weapons/Armors/HeavyArmor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ galya777\ on\ 08.06.25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ HeavyArmor.h}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_HEAVYARMOR\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_HEAVYARMOR\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Armor.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classHeavyArmor}{HeavyArmor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classArmor}{Armor}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classHeavyArmor}{HeavyArmor}}(\textcolor{keywordtype}{int}\ durability)}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classArmor}{Armor}}(ArmorType::HEAVY,\ durability)\ \{\}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ getReductionFactor()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.5f;}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classArmor}{Armor}}*\ clone()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classHeavyArmor}{HeavyArmor}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ onHit()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ armor\ is\ apparently\ not\ destroyable}}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_HEAVYARMOR\_H}}
+
+\end{DoxyCode}

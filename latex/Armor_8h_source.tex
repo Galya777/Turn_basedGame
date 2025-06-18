@@ -1,0 +1,43 @@
+\doxysection{Armor.\+h}
+\hypertarget{Armor_8h_source}{}\label{Armor_8h_source}\index{CLionProjects/Turn-\/basedGame/Weapons/Armors/Armor.h@{CLionProjects/Turn-\/basedGame/Weapons/Armors/Armor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_ARMOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_ARMOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{enum\ class}\ ArmorType\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ UNARMORED,}
+\DoxyCodeLine{00008\ \ \ \ \ LEATHER,}
+\DoxyCodeLine{00009\ \ \ \ \ MEDIUM,}
+\DoxyCodeLine{00010\ \ \ \ \ HEAVY}
+\DoxyCodeLine{00011\ \};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classArmor}{Armor}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classArmor}{Armor}}(ArmorType\ type,\ \textcolor{keywordtype}{int}\ durability);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classArmor}{\string~Armor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classArmor}{Armor}}*\ clone()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ getReductionFactor()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//\ 0.0\ to\ 1.0}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ onHit()\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ При\ удар,\ се\ вика\ за\ специално\ поведение}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ degrade();\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Намалява\ durability\ с\ 1}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ isUsable()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Проверява\ дали\ е\ usable\ (durability\ >\ 0)}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ reduceDamage(\textcolor{keywordtype}{int}\ dmg);\ \ \ \ \textcolor{comment}{//\ Намалява\ щетите\ според\ фактора,\ ако\ бронята\ е\ usable}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ absorbDamage(\textcolor{keywordtype}{int}\ dmg);\ \ \ \ \textcolor{comment}{//\ Абсорбира\ щетите\ и\ прилага\ onHit()}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ getDurability()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ ArmorType\ getType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \ \ \ \ ArmorType\ type;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ durability;}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_ARMOR\_H}}
+
+\end{DoxyCode}

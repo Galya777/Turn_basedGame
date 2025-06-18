@@ -1,0 +1,31 @@
+\doxysection{Paladin.\+h}
+\hypertarget{Paladin_8h_source}{}\label{Paladin_8h_source}\index{CLionProjects/Turn-\/basedGame/GameUnits/Comanders/Paladin.h@{CLionProjects/Turn-\/basedGame/GameUnits/Comanders/Paladin.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ galya777\ on\ 09.06.25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_PALADIN\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_PALADIN\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Comander.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../Weapons/Armors/HeavyArmor.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPaladin}{Paladin}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComander}{Comander}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classPaladin}{Paladin}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classComander}{Comander}}*\ clone()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ getCommanderType()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ canUseAbility()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ useAbility(std::vector<Unit*>\&\ allies,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Unit*>\&\ enemies,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Unit*>\&\ fallenAllies)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_PALADIN\_H}}
+\DoxyCodeLine{00025\ }
+
+\end{DoxyCode}

@@ -1,0 +1,60 @@
+\doxysection{Armor Class Reference}
+\hypertarget{classArmor}{}\label{classArmor}\index{Armor@{Armor}}
+
+
+Inheritance diagram for Armor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classArmor__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classArmor_a67239233be46731d44ec38aae1e1c30e}\label{classArmor_a67239233be46731d44ec38aae1e1c30e} 
+{\bfseries Armor} (Armor\+Type type, int durability)
+\item 
+\Hypertarget{classArmor_a728d67ef290f0475d9b37bd829325e52}\label{classArmor_a728d67ef290f0475d9b37bd829325e52} 
+virtual \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries clone} () const =0
+\item 
+\Hypertarget{classArmor_acde723d092a3dcdfedbe75ab6142d865}\label{classArmor_acde723d092a3dcdfedbe75ab6142d865} 
+virtual float {\bfseries get\+Reduction\+Factor} () const =0
+\item 
+\Hypertarget{classArmor_a985198a59848e5c9ddf014dde554fa77}\label{classArmor_a985198a59848e5c9ddf014dde554fa77} 
+virtual void {\bfseries on\+Hit} ()=0
+\item 
+\Hypertarget{classArmor_a8328b879ea2b6fc7245942391b333c41}\label{classArmor_a8328b879ea2b6fc7245942391b333c41} 
+void {\bfseries degrade} ()
+\item 
+\Hypertarget{classArmor_aa720776a177db265e9a24e135d4c2f60}\label{classArmor_aa720776a177db265e9a24e135d4c2f60} 
+bool {\bfseries is\+Usable} () const
+\item 
+\Hypertarget{classArmor_a10c2199f5e2a7e550dc287de960c58db}\label{classArmor_a10c2199f5e2a7e550dc287de960c58db} 
+int {\bfseries reduce\+Damage} (int dmg)
+\item 
+\Hypertarget{classArmor_abc13dad93b750baa8b4aca4b54a944d2}\label{classArmor_abc13dad93b750baa8b4aca4b54a944d2} 
+int {\bfseries absorb\+Damage} (int dmg)
+\item 
+\Hypertarget{classArmor_a7841263812c0ef982a635a4d09b15d6f}\label{classArmor_a7841263812c0ef982a635a4d09b15d6f} 
+int {\bfseries get\+Durability} () const
+\item 
+\Hypertarget{classArmor_a2675e7798d1d2bef7ae56d6ef2c1a413}\label{classArmor_a2675e7798d1d2bef7ae56d6ef2c1a413} 
+Armor\+Type {\bfseries get\+Type} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classArmor_ad9bbfaadc76b7d096d864827513a4dd9}\label{classArmor_ad9bbfaadc76b7d096d864827513a4dd9} 
+Armor\+Type {\bfseries type}
+\item 
+\Hypertarget{classArmor_af24bb1abf6fc25e38c6867b43e509b36}\label{classArmor_af24bb1abf6fc25e38c6867b43e509b36} 
+int {\bfseries durability}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Weapons/\+Armors/Armor.\+h\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Weapons/\+Armors/Armor.\+cpp\end{DoxyCompactItemize}

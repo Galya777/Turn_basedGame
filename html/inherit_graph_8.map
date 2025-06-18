@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classWeapon.html" title=" " alt="" coords="5,31,80,56"/>
+<area shape="rect" id="Node000001" href="$classFirearm.html" title=" " alt="" coords="149,5,221,31"/>
+<area shape="poly" id="edge29_Node000000_Node000001" title=" " alt="" coords="93,32,149,22,150,27,94,37"/>
+<area shape="rect" id="Node000002" href="$classMeleeWeapon.html" title=" " alt="" coords="128,55,243,80"/>
+<area shape="poly" id="edge30_Node000000_Node000002" title=" " alt="" coords="94,49,128,55,128,60,93,54"/>
+</map>

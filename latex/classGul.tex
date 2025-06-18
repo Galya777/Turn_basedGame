@@ -1,0 +1,139 @@
+\doxysection{Gul Class Reference}
+\hypertarget{classGul}{}\label{classGul}\index{Gul@{Gul}}
+
+
+Inheritance diagram for Gul\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{classGul__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Gul\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classGul__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGul_af29afc096e1b0a57e606a123ee7942a4}{attack}} (\mbox{\hyperlink{classUnit}{Unit}} \&target) override
+\item 
+std\+::string \mbox{\hyperlink{classGul_a82448a1f307211327576b76d3b1de2d9}{get\+Type}} () const override
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGul_a37e2da69ecc5d1e2ca5aae39bc230299}{clone}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classPureUndead}{Pure\+Undead}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Pure\+Undead} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cost)
+\item 
+std\+::string \mbox{\hyperlink{classPureUndead_a91fe235464a060abed65d61ddb25e275}{get\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUndeadUnit}{Undead\+Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Undead\+Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold, int mana=-\/1)
+\item 
+bool \mbox{\hyperlink{classUndeadUnit_a23ed7f364dd77d954f8b4ba5a39ba6a9}{has\+Mana\+Attribute}} () const override
+\item 
+int \mbox{\hyperlink{classUndeadUnit_a29430e8bde70cb58ff6d416dfd6fc303}{get\+Mana}} () const override
+\item 
+void \mbox{\hyperlink{classUndeadUnit_a86b3b27634c4524f9d36a11089753862}{set\+Mana}} (int m) override
+\item 
+void \mbox{\hyperlink{classUndeadUnit_af827072c68ff8b2ad806bd7cafdbc99f}{increase\+Mana}} (int amount) override
+\item 
+std\+::string \mbox{\hyperlink{classUndeadUnit_a87345edd8a575f84d81e9b4a230339bf}{get\+Type}} () const override
+\item 
+void \mbox{\hyperlink{classUndeadUnit_a6293eb11ef7c978783f20955737c857a}{attack}} (\mbox{\hyperlink{classUnit}{Unit}} \&target) override
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classUndeadUnit_a56348820fae7b8610818db3c5b2de785}{clone}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cos)
+\item 
+{\bfseries Unit} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+\mbox{\hyperlink{classUnit}{Unit}} \& {\bfseries operator=} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+virtual bool {\bfseries is\+Alive} () const
+\item 
+virtual void {\bfseries take\+Damage} (int dmg)
+\item 
+int {\bfseries reduce\+Damage} (int base\+Damage)
+\item 
+virtual void {\bfseries heal} (int amount)
+\item 
+\mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} ()
+\item 
+const \mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} () const
+\item 
+int {\bfseries get\+HP} () const
+\item 
+int {\bfseries get\+Gold\+Cost} () const
+\item 
+void {\bfseries set\+HP} (int new\+HP)
+\item 
+void {\bfseries set\+Gold\+Cost} (int new\+Gold\+Cost)
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Armor} () const
+\item 
+void {\bfseries set\+Armor} (\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}new\+Armor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classUnit}{Unit}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries gold\+Cost}
+\item 
+\mbox{\hyperlink{classHealth}{Health}} {\bfseries health}
+\item 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries armor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGul_af29afc096e1b0a57e606a123ee7942a4}\label{classGul_af29afc096e1b0a57e606a123ee7942a4} 
+\index{Gul@{Gul}!attack@{attack}}
+\index{attack@{attack}!Gul@{Gul}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Gul\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUnit}{Unit}} \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classPureUndead}{Pure\+Undead}}.
+
+\Hypertarget{classGul_a37e2da69ecc5d1e2ca5aae39bc230299}\label{classGul_a37e2da69ecc5d1e2ca5aae39bc230299} 
+\index{Gul@{Gul}!clone@{clone}}
+\index{clone@{clone}!Gul@{Gul}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} Gul\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classUnit}{Unit}}.
+
+\Hypertarget{classGul_a82448a1f307211327576b76d3b1de2d9}\label{classGul_a82448a1f307211327576b76d3b1de2d9} 
+\index{Gul@{Gul}!getType@{getType}}
+\index{getType@{getType}!Gul@{Gul}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Gul\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classUnit}{Unit}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Not\+Alive\+Units/Gul.\+h\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Not\+Alive\+Units/Gul.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,108 @@
+\doxysection{Unit Class Reference}
+\hypertarget{classUnit}{}\label{classUnit}\index{Unit@{Unit}}
+
+
+Inheritance diagram for Unit\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUnit__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Unit\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classUnit__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classUnit_a1538edb91f5b37d6ad3934c79a9e8812}\label{classUnit_a1538edb91f5b37d6ad3934c79a9e8812} 
+{\bfseries Unit} (int hp, \mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}arm, int gold\+Cos)
+\item 
+\Hypertarget{classUnit_a60dc7c2c2001a4b96978352058822edc}\label{classUnit_a60dc7c2c2001a4b96978352058822edc} 
+{\bfseries Unit} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+\Hypertarget{classUnit_ab6e7d36f73c0c25a340995e2cdcb64f8}\label{classUnit_ab6e7d36f73c0c25a340995e2cdcb64f8} 
+\mbox{\hyperlink{classUnit}{Unit}} \& {\bfseries operator=} (const \mbox{\hyperlink{classUnit}{Unit}} \&other)
+\item 
+\Hypertarget{classUnit_a6a76a9b68ab06cd658fed1e441d15a67}\label{classUnit_a6a76a9b68ab06cd658fed1e441d15a67} 
+virtual \mbox{\hyperlink{classUnit}{Unit}} \texorpdfstring{$\ast$}{*} {\bfseries clone} () const =0
+\item 
+\Hypertarget{classUnit_a0f2005265395168455e716b67da0efee}\label{classUnit_a0f2005265395168455e716b67da0efee} 
+virtual bool {\bfseries has\+Mana\+Attribute} () const
+\item 
+\Hypertarget{classUnit_a4b41f45742df1de1fe698578b6094a9a}\label{classUnit_a4b41f45742df1de1fe698578b6094a9a} 
+virtual int {\bfseries get\+Mana} () const
+\item 
+\Hypertarget{classUnit_ac7988c0ab02f2b5401b4871810306d72}\label{classUnit_ac7988c0ab02f2b5401b4871810306d72} 
+virtual void {\bfseries set\+Mana} (int m)
+\item 
+\Hypertarget{classUnit_ae5e23d3a744baa2da81e2bca1dbeb342}\label{classUnit_ae5e23d3a744baa2da81e2bca1dbeb342} 
+virtual void {\bfseries increase\+Mana} (int amount)
+\item 
+\Hypertarget{classUnit_a3f4d8160145a1587d3084f478127fc2f}\label{classUnit_a3f4d8160145a1587d3084f478127fc2f} 
+virtual void {\bfseries attack} (\mbox{\hyperlink{classUnit}{Unit}} \&target)=0
+\item 
+\Hypertarget{classUnit_ab9b32ff5061cc7815b2580f736dce48d}\label{classUnit_ab9b32ff5061cc7815b2580f736dce48d} 
+virtual std\+::string {\bfseries get\+Type} () const =0
+\item 
+\Hypertarget{classUnit_a0b5ca256666a99f4a136a69b489dedd9}\label{classUnit_a0b5ca256666a99f4a136a69b489dedd9} 
+virtual bool {\bfseries is\+Alive} () const
+\item 
+\Hypertarget{classUnit_aea26c1bc09190343d2bbc795b9ab2d83}\label{classUnit_aea26c1bc09190343d2bbc795b9ab2d83} 
+virtual void {\bfseries take\+Damage} (int dmg)
+\item 
+\Hypertarget{classUnit_a5510630f6bceec298d102a366ce84e8e}\label{classUnit_a5510630f6bceec298d102a366ce84e8e} 
+int {\bfseries reduce\+Damage} (int base\+Damage)
+\item 
+\Hypertarget{classUnit_a2fb11e469988a28c6397bdae5da4d236}\label{classUnit_a2fb11e469988a28c6397bdae5da4d236} 
+virtual void {\bfseries heal} (int amount)
+\item 
+\Hypertarget{classUnit_a4ca3ef05c71ee01b8946d3e79112b6fb}\label{classUnit_a4ca3ef05c71ee01b8946d3e79112b6fb} 
+\mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} ()
+\item 
+\Hypertarget{classUnit_a09020aedde92bd82dab024fd112a3212}\label{classUnit_a09020aedde92bd82dab024fd112a3212} 
+const \mbox{\hyperlink{classHealth}{Health}} \& {\bfseries get\+Health} () const
+\item 
+\Hypertarget{classUnit_ac7e562f19574b4c2869236cfed08ba9b}\label{classUnit_ac7e562f19574b4c2869236cfed08ba9b} 
+int {\bfseries get\+HP} () const
+\item 
+\Hypertarget{classUnit_a87017e62c7b93c77076b4a234c72ae37}\label{classUnit_a87017e62c7b93c77076b4a234c72ae37} 
+int {\bfseries get\+Gold\+Cost} () const
+\item 
+\Hypertarget{classUnit_aea3c07bc17d7b220d989a10e67474b69}\label{classUnit_aea3c07bc17d7b220d989a10e67474b69} 
+void {\bfseries set\+HP} (int new\+HP)
+\item 
+\Hypertarget{classUnit_a9e19208e69aa38bb439cb41cd6ab68d2}\label{classUnit_a9e19208e69aa38bb439cb41cd6ab68d2} 
+void {\bfseries set\+Gold\+Cost} (int new\+Gold\+Cost)
+\item 
+\Hypertarget{classUnit_a853f23d6eada54bddfe0cf3a3293d6fe}\label{classUnit_a853f23d6eada54bddfe0cf3a3293d6fe} 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Armor} () const
+\item 
+\Hypertarget{classUnit_a805bdda748fdefa2391fea3a47d9fd77}\label{classUnit_a805bdda748fdefa2391fea3a47d9fd77} 
+void {\bfseries set\+Armor} (\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*}new\+Armor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classUnit_a72463cbd90a46995ea1adbe2125b9c8c}\label{classUnit_a72463cbd90a46995ea1adbe2125b9c8c} 
+int {\bfseries gold\+Cost}
+\item 
+\Hypertarget{classUnit_a64a1dc4d8ff7a457bb79c8256a05b7b8}\label{classUnit_a64a1dc4d8ff7a457bb79c8256a05b7b8} 
+\mbox{\hyperlink{classHealth}{Health}} {\bfseries health}
+\item 
+\Hypertarget{classUnit_afe7f6dc9c4bc355e2af1c436612d1e79}\label{classUnit_afe7f6dc9c4bc355e2af1c436612d1e79} 
+\mbox{\hyperlink{classArmor}{Armor}} \texorpdfstring{$\ast$}{*} {\bfseries armor}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+CLion\+Projects/\+Turn-\/based\+Game/\+Game\+Units/\+Basics/Unit.\+h\end{DoxyCompactItemize}

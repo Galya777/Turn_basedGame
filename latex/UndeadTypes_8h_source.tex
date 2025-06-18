@@ -1,0 +1,35 @@
+\doxysection{Undead\+Types.\+h}
+\hypertarget{UndeadTypes_8h_source}{}\label{UndeadTypes_8h_source}\index{CLionProjects/Turn-\/basedGame/GameUnits/NotAliveUnits/UndeadTypes.h@{CLionProjects/Turn-\/basedGame/GameUnits/NotAliveUnits/UndeadTypes.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ galya777\ on\ 11.05.25.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_UNDEADUNIT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_UNDEADUNIT\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}UnlivingUnit.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPureUndead}{PureUndead}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classUndeadUnit}{UndeadUnit}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classPureUndead}{PureUndead}}(\textcolor{keywordtype}{int}\ hp,\ \mbox{\hyperlink{classArmor}{Armor}}*\ arm,\ \textcolor{keywordtype}{int}\ goldCost)\ :\ \mbox{\hyperlink{classUndeadUnit}{UndeadUnit}}(hp,\ arm,\ goldCost)\ \{\}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ attack(\mbox{\hyperlink{classUnit}{Unit}}\&\ target)\ \textcolor{keyword}{override}=0;}
+\DoxyCodeLine{00016\ \ \ \ \ [[nodiscard]]\ std::string\ getType()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Pure\ Undead"{}};\ \}}
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRaisedUndead}{RaisedUndead}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classUndeadUnit}{UndeadUnit}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classRaisedUndead}{RaisedUndead}}(\textcolor{keywordtype}{int}\ hp,\ \mbox{\hyperlink{classArmor}{Armor}}*\ arm,\ \textcolor{keywordtype}{int}\ goldCost)\ :\ \mbox{\hyperlink{classUndeadUnit}{UndeadUnit}}(hp,\ arm,\ goldCost)\ \{\}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ attack(\mbox{\hyperlink{classUnit}{Unit}}\&\ target)\ \textcolor{keyword}{override}=0;}
+\DoxyCodeLine{00024\ \ \ \ \ [[nodiscard]]\ std::string\ getType()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Raised\ Undead"{}};\ \}}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TURN\_BASEDGAME\_UNDEADUNIT\_H}}
+
+\end{DoxyCode}
