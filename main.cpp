@@ -83,7 +83,7 @@ int main() {
             }
         } else if (command == "START") {
             game.generateRandomUndeadArmy();
-            game.startDuel();
+                      game.startDuel();
         } else if (command == "SAVE") {
             std::string filename;
             iss >> filename;
@@ -92,9 +92,16 @@ int main() {
         } else if (command == "LOAD") {
             std::string filename;
             iss >> filename;
-            game.loadFromFile(filename);
-            std::cout << "Game loaded from " << filename << "\n";
-        } else if (command == "RESTART") {
+
+            std::ifstream testfile(filename);
+            if (!testfile.is_open()) {
+                std::cout << "File " << filename << " does NOT exist or cannot be opened!" << std::endl;
+            } else {
+                testfile.close();
+                game.loadFromFile(filename);
+                std::cout << "Game loaded from " << filename << "\n";
+            }}
+        else if (command == "RESTART") {
             game.reset();
             std::cout << "Game restarted.\n";
         } else if (command == "STATUS") {

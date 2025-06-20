@@ -1,9 +1,0 @@
-<map id="Skeleton" name="Skeleton">
-<area shape="rect" id="Node000001" title=" " alt="" coords="17,225,95,251"/>
-<area shape="rect" id="Node000002" href="$classPureUndead.html" title=" " alt="" coords="5,152,107,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,191,59,225,53,225,53,191"/>
-<area shape="rect" id="Node000003" href="$classUndeadUnit.html" title=" " alt="" coords="7,79,105,104"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="59,118,59,152,53,152,53,118"/>
-<area shape="rect" id="Node000004" href="$classUnit.html" title=" " alt="" coords="31,5,81,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="59,44,59,79,53,79,53,44"/>
-</map>

@@ -1,20 +1,27 @@
-Infantry,420,0,Medium,8,7,250
-Archer,535,0,Medium,3,10,300
-Knight,835,0,Heavy,10,45,700
-Healer,290,200,Unarmored,0,2,150
-Wizard,325,200,Leather,3,10,250
+1000 1000
+1 2
+L|Arthur,100,50,Unarmored,300,25
+L|Elena,80,70,MediumArmor(60),350,20
+U|Morgoth,120,60,HeavyArmor(70),400,30
+U|Necra,90,80,LeatherArmor(80),300,22
 
-Skeleton,500,0,Medium,8,5,100
-Ghoul,400,0,Heavy,6,12,250
-Necromancer,300,200,Unarmored,0,4,400
-Zombie,250,0,Unarmored,0,15,300
-Dibbuk,250,300,Unarmored,0,15,300
-Revenant,600,0,Unarmored,0,15,300
-Ghost,0,0,None,0,0,500
+L|Infantry,420,0,Medium,8,7,250
+L|Archer,535,0,Medium,3,10,300
+L|Knight,835,0,Heavy,10,45,700
+L|Healer,290,200,Unarmored,0,2,150
+L|Wizard,325,200,Leather,3,10,250
 
-Lich,1500,1000,Heavy,15,100,1000
-TerrorLord,3000,2000,Heavy,20,200,2000
-DeadKnight,2500,1000,Heavy,15,150,1500
-UndeadHunter,2000,1500,Heavy,17,75,1500
-BladeDancer,4000,0,Medium,25,300,2000
-Paladin,5000,3000,Heavy,20,250,2500
+U|Skeleton,500,0,Medium,8,5,100
+U|Ghoul,400,0,Heavy,6,12,250
+U|Necromancer,300,200,Unarmored,0,4,400
+U|Zombie,250,0,Unarmored,0,15,300
+U|Dibbuk,250,300,Unarmored,0,15,300
+U|Revenant,600,0,Unarmored,0,15,300
+U|Ghost,0,0,None,0,0,500
+
+U|Lich,1500,1000,Heavy,15,100,1000
+U|TerrorLord,3000,2000,Heavy,20,200,2000
+U|DeadKnight,2500,1000,Heavy,15,150,1500
+U|UndeadHunter,2000,1500,Heavy,17,75,1500
+L|BladeDancer,4000,0,Medium,25,300,2000
+L|Paladin,5000,3000,Heavy,20,250,2500

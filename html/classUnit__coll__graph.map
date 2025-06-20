@@ -1,7 +1,0 @@
-<map id="Unit" name="Unit">
-<area shape="rect" id="Node000001" title=" " alt="" coords="57,93,107,119"/>
-<area shape="rect" id="Node000002" href="$classHealth.html" title=" " alt="" coords="5,5,71,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="45,44,54,68,72,92,68,95,49,71,40,45"/>
-<area shape="rect" id="Node000003" href="$classArmor.html" title=" " alt="" coords="95,5,157,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,44,90,94,86,92,111,42"/>
-</map>

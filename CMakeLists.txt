@@ -10,7 +10,7 @@ add_executable(Turn_basedGame
         # Основни класове
         GameState.cpp
         ConfigLoader.cpp
-        Base.cpp
+        GameUnits/Base.cpp
         UndeadFactory.cpp
 
         # Базови единици

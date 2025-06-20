@@ -9,6 +9,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "ConfigLoader.h"
 #include "GameUnits/Basics/Unit.h"
 #include "GameUnits/Comanders/Comander.h"
 
@@ -65,13 +66,10 @@ public:
     void saveToFile(const std::string& filename);
     void loadFromFile(const std::string& filename);
     void reset();
-    void printStatus() const;
 
-    // Нови функции по задание
-    void createUnit(const std::string& name, bool isLiving);
-    void selectCommanderByName(const std::string& name, bool isLiving);
-    void selectUnits(const std::string& name, int times, bool isLiving);
+
     void generateRandomUndeadArmy();
+    void loadCommandersFromFiles(const std::string& livingFilename, const std::string& undeadFilename);
 
     void startDuel();
 };

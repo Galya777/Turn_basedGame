@@ -59,49 +59,62 @@ public:
         }
     }
 
-    Unit* createUnit(const std::string& unitType) {
-        if (unitType == "Infantry") {
-            Infantryman unit;
-            return unit.clone();
-        } else if (unitType == "Archer") {
-            Sagittarius unit;
-            return unit.clone();
-        } else if (unitType == "Knight") {
-            Knight unit;
-            return unit.clone();
-        } else if (unitType == "Healer") {
-            Healer unit;
-            return unit.clone();
-        } else if (unitType == "Wizard") {
-            Wizard unit;
-            return unit.clone();
-        } else if (unitType == "Skeleton") {
-            Skeleton unit;
-            return unit.clone();
-        } else if (unitType == "Ghoul") {
-            Gul unit;
-            return unit.clone();
-        } else if (unitType == "Necromancer") {
-            Necromancer unit;
-            return unit.clone();
-        } else if (unitType == "Zombie") {
-            Zombie unit;
-            return unit.clone();
-        } else if (unitType == "Dybbuk") {
-            Dibbuk unit;
-            return unit.clone();
-        } else if (unitType == "Revenant") {
-            Revenant unit;
-            return unit.clone();
-        } else if (unitType == "Ghost") {
-            Ghost unit;
-            return unit.clone();
+    Unit* createUnit(const std::string& unitType, bool isCommander = false) {
+        if (isCommander) {
+            // Създава командир по име (тук можеш да разшириш с още имена)
+            if (unitType == "Lich") return new Lich("Lich");
+            else if (unitType == "DeathLord") return new DreadLord("DeathLord");
+            else if (unitType == "DeadKnight") return new DeathKnight("DeadKnight");
+            else if (unitType == "UndeadHunter") return new UndeadHunter("UndeadHunter");
+            else if (unitType == "Bladedancer") return new DancerWithBlades("Bladedancer");
+            else if (unitType == "Paladin") return new Paladin("Paladin");
+            else {
+                std::cerr << "[!] Unknown commander type: " << unitType << "\n";
+                return nullptr;
+            }
         } else {
-            std::cerr << "[!] Unknown unit type: " << unitType << "\n";
-            return nullptr;
+            if (unitType == "Infantry") {
+                Infantryman unit;
+                return unit.clone();
+            } else if (unitType == "Archer") {
+                Sagittarius unit;
+                return unit.clone();
+            } else if (unitType == "Knight") {
+                Knight unit;
+                return unit.clone();
+            } else if (unitType == "Healer") {
+                Healer unit;
+                return unit.clone();
+            } else if (unitType == "Wizard") {
+                Wizard unit;
+                return unit.clone();
+            } else if (unitType == "Skeleton") {
+                Skeleton unit;
+                return unit.clone();
+            } else if (unitType == "Gul") {
+                Gul unit;
+                return unit.clone();
+            } else if (unitType == "Necromancer") {
+                Necromancer unit;
+                return unit.clone();
+            } else if (unitType == "Zombi") {
+                Zombie unit;
+                return unit.clone();
+            } else if (unitType == "Dibbuk") {
+                Dibbuk unit;
+                return unit.clone();
+            } else if (unitType == "Reverant") {
+                Revenant unit;
+                return unit.clone();
+            } else if (unitType == "Ghost") {
+                Ghost unit;
+                return unit.clone();
+            } else {
+                std::cerr << "[!] Unknown unit type: " << unitType << "\n";
+                return nullptr;
+            }
         }
     }
-
 
     void assignUnitsToCommander(Comander* commander, const std::vector<std::string>& unitTypes) {
         for (const auto& unitType : unitTypes) {

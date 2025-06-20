@@ -6,19 +6,22 @@
 #include <utility>
 #include <vector>
 
+class Base;
+
 class Comander : public Unit {
 protected:
     std::string name;
     int mana;
     int attackPower;
     std::vector<Unit*> controlledUnits;
+    Base* base = nullptr;
 
 public:
     Comander(std::string  name, int hp, int mana, Armor* armor, int goldCost, int attackPower)
-            : Unit(hp, armor, goldCost), name(std::move(name)), mana(mana), attackPower(attackPower) {}
+            : Unit(hp, armor, goldCost), name(std::move(name)), mana(mana), attackPower(attackPower), base(nullptr) {}
 
     Comander(const Comander& other)
-            : Unit(other), name(other.name), mana(other.mana), attackPower(other.attackPower) {
+            : Unit(other), name(other.name), mana(other.mana), attackPower(other.attackPower), base(other.base) {
         for (const auto& unit : other.controlledUnits) {
             controlledUnits.push_back(unit->clone());
         }
@@ -30,14 +33,13 @@ public:
             name = other.name;
             mana = other.mana;
             attackPower = other.attackPower;
+            base = other.base;
 
-            // Освобождаваме старите единици
             for (auto* unit : controlledUnits) {
                 delete unit;
             }
             controlledUnits.clear();
 
-            // Копираме новите
             for (const auto& unit : other.controlledUnits) {
                 controlledUnits.push_back(unit->clone());
             }
@@ -70,7 +72,7 @@ public:
     int getAttackPower() const { return attackPower; }
 
     virtual bool canUseAbility() const {
-        return false;  // Override ако трябва
+        return false;
     }
 
     void attack(Unit& target) override {
@@ -95,6 +97,10 @@ public:
         return controlledUnits;
     }
 
+    // 🔧 Нови методи:
+    void setBase(Base* b) { base = b; }
+    [[nodiscard]] Base* getBase() const { return base; }
+
     ~Comander() override {
         for (auto* unit : controlledUnits) {
             delete unit;
@@ -104,7 +110,6 @@ public:
 
     [[nodiscard]] std::string serialize() const;
     static Comander* deserialize(const std::string& data);
-
 };
 
 #endif //TURN_BASEDGAME_COMMANDER_H

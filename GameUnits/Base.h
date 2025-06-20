@@ -4,8 +4,11 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "GameUnits/Basics/Unit.h"
-#include "UndeadFactory.h"
+#include "Basics/Unit.h"
+#include "../UndeadFactory.h"
+#include "../ConfigLoader.h"
+
+class CommanderLoader;
 
 class Base {
 private:
@@ -66,6 +69,16 @@ public:
         std::cout << "[+] Unit created: " << newUnit->getType()
                   << (isCommander ? " (Commander)" : "") << ", gold left: " << gold << "\n";
         return newUnit;
+    }
+
+    Unit* spawnUnit(const std::string& unitTypeName, bool isCommander = false) {
+        CommanderLoader loader;
+        Unit* prototype = loader.createUnit(unitTypeName);
+        if (!prototype) {
+            std::cerr << "[!] Invalid unit type: " << unitTypeName << "\n";
+            return nullptr;
+        }
+        return spawnUnit(prototype, isCommander);
     }
 
     Unit* resurrectUnit(Unit* deadUnit) {
@@ -141,7 +154,6 @@ public:
             }
         }
     }
-
 private:
     int getCommanderTypeCount(const std::string& type) const {
         for (const auto& pair : commanderTypeCount) {
