@@ -9,21 +9,13 @@
 
 class LeatherArmor : public Armor {
 public:
-    LeatherArmor(int durability)
-            : Armor(ArmorType::LEATHER, durability) {}
+    explicit LeatherArmor(int durability);
 
-    float getReductionFactor() const override {
-        return 0.3f;
-    }
-
-    Armor* clone() const override {
-        return new LeatherArmor(*this);
-    }
-
-    void onHit() override {
-        degrade();
-    }
+    float getReductionFactor() const override;
+    Armor* clone() const override;
+    void onHit() override;
 };
 
 #endif //TURN_BASEDGAME_LEATHERARMOR_H
+
 

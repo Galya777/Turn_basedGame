@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "GameState.h"
 #include "ConfigLoader.h"
 #include "GameUnits/Basics/Unit.h"

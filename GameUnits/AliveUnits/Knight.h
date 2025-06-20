@@ -2,7 +2,6 @@
 // Created by galya777 on 05.06.25.
 //
 
-// Knight.h
 #ifndef TURN_BASEDGAME_KNIGHT_H
 #define TURN_BASEDGAME_KNIGHT_H
 
@@ -12,19 +11,12 @@
 
 class Knight : public LivingUnit {
 public:
-    Knight()
-            : LivingUnit(
-            835,
-            new HeavyArmor(10),
-            700,
-            new MeleeWeapon(45, "Sword")
-    ) {}
+    Knight();
 
-    std::string getType() const override { return "Knight"; }
-    Unit* clone() const override {
-        return new Knight(*this);
-    }
+    std::string getType() const override;
+    Unit* clone() const override;
 };
 
 #endif //TURN_BASEDGAME_KNIGHT_H
+
 

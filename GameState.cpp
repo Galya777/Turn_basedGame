@@ -1,20 +1,34 @@
+//
 // Created by galya777 on 10.06.25.
+//
 
 #include "GameState.h"
 #include <random>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include "ConfigLoader.h"
 
 GameState::GameState() = default;
 
 GameState::~GameState() {
-    for (auto* u : currentLivingUnits) delete u;
-    for (auto* u : currentUndeadUnits) delete u;
-    for (auto* c : availableLivingCommanders) delete c;
-    for (auto* c : availableUndeadCommanders) delete c;
+    clearCurrentUnits();
+    clearCommanders();
 }
 
+void GameState::clearCurrentUnits() {
+    for (auto* u : currentLivingUnits) delete u;
+    currentLivingUnits.clear();
+    for (auto* u : currentUndeadUnits) delete u;
+    currentUndeadUnits.clear();
+}
+
+void GameState::clearCommanders() {
+    for (auto* c : availableLivingCommanders) delete c;
+    availableLivingCommanders.clear();
+    for (auto* c : availableUndeadCommanders) delete c;
+    availableUndeadCommanders.clear();
+}
 
 int GameState::getGoldPlayer1() const { return goldPlayer1; }
 int GameState::getGoldPlayer2() const { return goldPlayer2; }
@@ -36,32 +50,25 @@ std::vector<Comander*>& GameState::getAvailableLivingCommanders() { return avail
 std::vector<Comander*>& GameState::getAvailableUndeadCommanders() { return availableUndeadCommanders; }
 
 void GameState::addLivingCommander(Comander* commander) {
-    availableLivingCommanders.push_back(commander);
+    if (commander) availableLivingCommanders.push_back(commander);
 }
 
 void GameState::addUndeadCommander(Comander* commander) {
-    availableUndeadCommanders.push_back(commander);
+    if (commander) availableUndeadCommanders.push_back(commander);
 }
 
 std::vector<Unit*>& GameState::getCurrentLivingUnits() { return currentLivingUnits; }
 std::vector<Unit*>& GameState::getCurrentUndeadUnits() { return currentUndeadUnits; }
 
-void GameState::clearCurrentUnits() {
-    for (auto* u : currentLivingUnits) delete u;
-    for (auto* u : currentUndeadUnits) delete u;
-    currentLivingUnits.clear();
-    currentUndeadUnits.clear();
-}
-
 void GameState::saveToFile(const std::string& filename) {
     std::ofstream out(filename, std::ios::out | std::ios::trunc);
-    if (!out.is_open()) {
+    if (!out) {
         std::cerr << "Error: Unable to open file for saving: " << filename << "\n";
         return;
     }
 
-    out << goldPlayer1 << ' ' << goldPlayer2 << '\n';
-    out << winsPlayer1 << ' ' << winsPlayer2 << '\n';
+    out << goldPlayer1 << ' ' << goldPlayer2 << '\n'
+        << winsPlayer1 << ' ' << winsPlayer2 << '\n';
 
     for (const auto* cmd : availableLivingCommanders) {
         out << "L|" << cmd->serialize() << '\n';
@@ -70,78 +77,71 @@ void GameState::saveToFile(const std::string& filename) {
         out << "U|" << cmd->serialize() << '\n';
     }
 
-    out.close();
     std::cout << "Game state saved to " << filename << "\n";
 }
 
-
-
 void GameState::loadFromFile(const std::string& filename) {
     std::ifstream in(filename);
-    if (!in.is_open()) {
+    if (!in) {
         std::cerr << "Error: Unable to open file for loading: " << filename << "\n";
         return;
     }
 
     clearCurrentUnits();
-    for (auto* c : availableLivingCommanders) delete c;
-    for (auto* c : availableUndeadCommanders) delete c;
-    availableLivingCommanders.clear();
-    availableUndeadCommanders.clear();
+    clearCommanders();
 
-    std::string headerLine;
-    if (!std::getline(in, headerLine)) {
-        std::cerr << "Error: File is empty or corrupt.\n";
+    std::string line;
+
+    // Load gold
+    if (!std::getline(in, line)) {
+        std::cerr << "Error: File is empty or corrupt (missing gold data).\n";
         return;
     }
-
-    std::istringstream goldStream(headerLine);
+    std::istringstream goldStream(line);
     if (!(goldStream >> goldPlayer1 >> goldPlayer2)) {
         std::cerr << "Error: Invalid gold values.\n";
         return;
     }
 
-    if (!std::getline(in, headerLine)) {
+    // Load wins
+    if (!std::getline(in, line)) {
         std::cerr << "Error: Missing win data.\n";
         return;
     }
-
-    std::istringstream winStream(headerLine);
-    if (!(winStream >> winsPlayer1 >> winsPlayer2)) {
+    std::istringstream winsStream(line);
+    if (!(winsStream >> winsPlayer1 >> winsPlayer2)) {
         std::cerr << "Error: Invalid win data.\n";
         return;
     }
 
-    std::string line;
+    // Load commanders
     while (std::getline(in, line)) {
         if (line.size() < 3 || line[1] != '|') {
             std::cerr << "Warning: Skipping invalid line: " << line << "\n";
             continue;
         }
 
-        char type = line[0];
+        char faction = line[0];
         std::string data = line.substr(2);
-        Comander* cmd = Comander::deserialize(data);
 
+        Comander* cmd = Comander::deserialize(data);
         if (!cmd) {
             std::cerr << "Warning: Could not deserialize commander: " << data << "\n";
             continue;
         }
 
-        if (type == 'L') {
+        if (faction == 'L') {
             availableLivingCommanders.push_back(cmd);
-        } else if (type == 'U') {
+        } else if (faction == 'U') {
             availableUndeadCommanders.push_back(cmd);
         } else {
-            std::cerr << "Warning: Unknown commander type: " << type << "\n";
+            std::cerr << "Warning: Unknown commander faction: " << faction << "\n";
             delete cmd;
         }
     }
 
-    in.close();
     std::cout << "Game loaded successfully from " << filename << "\n";
 }
-
 
 void GameState::reset() {
     goldPlayer1 = 1000;
@@ -149,6 +149,7 @@ void GameState::reset() {
     winsPlayer1 = 0;
     winsPlayer2 = 0;
     clearCurrentUnits();
+    clearCommanders();
     selectedLivingCommander = nullptr;
     selectedUndeadCommander = nullptr;
 }
@@ -156,33 +157,31 @@ void GameState::reset() {
 void GameState::generateRandomUndeadArmy() {
     std::random_device rd;
     std::mt19937 gen(rd());
-
-    // ✅ Случаен брой немъртви единици (от 1 до 5)
-    std::uniform_int_distribution<> unitCount(1, 5);
-    int count = unitCount(gen);
+    std::uniform_int_distribution<> unitCountDist(1, 5);
+    int count = unitCountDist(gen);
 
     CommanderLoader loader;
-    std::vector<std::string> undeadUnitTypes = { "Skeleton", "Gul", "Necromancer", "Zombi", "Dibbuk", "Reverant", "Ghost" };
-
-    std::uniform_int_distribution<> typeDist(0, (int)undeadUnitTypes.size() - 1);
+    std::vector<std::string> undeadUnitTypes = {
+            "Skeleton", "Gul", "Necromancer", "Zombi", "Dibbuk", "Reverant", "Ghost"
+    };
+    std::uniform_int_distribution<> typeDist(0, static_cast<int>(undeadUnitTypes.size()) - 1);
 
     for (int i = 0; i < count; ++i) {
-        std::string randomType = undeadUnitTypes[typeDist(gen)];
-        Unit* unit = loader.createUnit(randomType);
+        std::string type = undeadUnitTypes[typeDist(gen)];
+        Unit* unit = loader.createUnit(type);
         if (unit) currentUndeadUnits.push_back(unit);
     }
 
-    // ✅ Случаен немъртъв главнокомандващ
     if (!availableUndeadCommanders.empty()) {
-        std::uniform_int_distribution<> cmdDist(0, (int)availableUndeadCommanders.size() - 1);
+        std::uniform_int_distribution<> cmdDist(0, static_cast<int>(availableUndeadCommanders.size()) - 1);
         selectedUndeadCommander = availableUndeadCommanders[cmdDist(gen)];
     }
 }
 
 void GameState::startDuel() {
     std::cout << "\n=== DUEL BEGINS ===\n";
-    std::cout << "[DEBUG] selectedLivingCommander = " << (selectedLivingCommander ? selectedLivingCommander->getName() : "nullptr") << "\n";
-    std::cout << "[DEBUG] selectedUndeadCommander = " << (selectedUndeadCommander ? selectedUndeadCommander->getName() : "nullptr") << "\n";
+    std::cout << "[DEBUG] Selected Living Commander: " << (selectedLivingCommander ? selectedLivingCommander->getName() : "nullptr") << "\n";
+    std::cout << "[DEBUG] Selected Undead Commander: " << (selectedUndeadCommander ? selectedUndeadCommander->getName() : "nullptr") << "\n";
 
     if (!selectedLivingCommander || !selectedUndeadCommander) {
         std::cout << "Error: Both factions must have a selected commander.\n";
@@ -197,12 +196,13 @@ void GameState::startDuel() {
     std::vector<Unit*> fallenLivingUnits;
     std::vector<Unit*> fallenUndeadUnits;
 
+    // --- Undead units attack first ---
     std::cout << "\nUndead units attack first:\n";
     for (Unit* attacker : currentUndeadUnits) {
         if (currentLivingUnits.empty()) break;
         Unit* target = currentLivingUnits.front();
 
-        int damage = 10 + rand() % 11;
+        int damage = 10 + (rand() % 11);
         std::cout << "Undead unit deals " << damage << " damage.\n";
         target->takeDamage(damage);
 
@@ -213,15 +213,17 @@ void GameState::startDuel() {
         }
     }
 
+    // --- Undead commander ability ---
     std::cout << "\nUndead commander uses ability:\n";
     selectedUndeadCommander->useAbility(currentUndeadUnits, currentLivingUnits, fallenUndeadUnits);
 
+    // --- Living units counterattack ---
     std::cout << "\nLiving units counterattack:\n";
     for (Unit* attacker : currentLivingUnits) {
         if (currentUndeadUnits.empty()) break;
         Unit* target = currentUndeadUnits.front();
 
-        int damage = 10 + rand() % 11;
+        int damage = 10 + (rand() % 11);
         std::cout << "Living unit deals " << damage << " damage.\n";
         target->takeDamage(damage);
 
@@ -232,14 +234,15 @@ void GameState::startDuel() {
         }
     }
 
+    // --- Living commander ability ---
     std::cout << "\nLiving commander uses ability:\n";
     selectedLivingCommander->useAbility(currentLivingUnits, currentUndeadUnits, fallenLivingUnits);
 
+    // --- Undead raise additional units ---
     std::cout << "\nUndead attempt to raise additional units:\n";
-
     CommanderLoader loader;
-    int revived = rand() % 2 + 1;
-    for (int i = 0; i < revived; ++i) {
+    int revivedCount = rand() % 2 + 1;
+    for (int i = 0; i < revivedCount; ++i) {
         Unit* u = loader.createUnit("UndeadInfantry");
         if (u) {
             currentUndeadUnits.push_back(u);
@@ -247,12 +250,13 @@ void GameState::startDuel() {
         }
     }
 
+    // --- Final attack by living ---
     std::cout << "\nFinal attack by the living:\n";
     for (Unit* attacker : currentLivingUnits) {
         if (currentUndeadUnits.empty()) break;
         Unit* target = currentUndeadUnits.front();
 
-        int damage = 10 + rand() % 11;
+        int damage = 10 + (rand() % 11);
         std::cout << "Living unit deals " << damage << " damage.\n";
         target->takeDamage(damage);
 
@@ -263,46 +267,21 @@ void GameState::startDuel() {
         }
     }
 
+    // --- Duel result ---
     std::cout << "\n=== DUEL RESULTS ===\n";
     bool livingWin = currentUndeadUnits.empty();
     bool undeadWin = currentLivingUnits.empty();
 
     if (livingWin && !undeadWin) {
-        std::cout << "The living have won the duel.\n";
+        std::cout << "The living have won the duel!\n";
         incrementWinsPlayer1();
+        addGoldPlayer1(100);
     } else if (undeadWin && !livingWin) {
-        std::cout << "The undead have won the duel.\n";
+        std::cout << "The undead have won the duel!\n";
         incrementWinsPlayer2();
+        addGoldPlayer2(100);
     } else {
-        std::cout << "The duel ends in a draw. Both factions still have units remaining.\n";
+        std::cout << "The duel ended in a draw.\n";
     }
-
-    std::cout << "\nEach faction receives 1000 gold.\n";
-    addGoldPlayer1(1000);
-    addGoldPlayer2(1000);
-
-    if (getWinsPlayer1() >= 3) {
-        std::cout << "\nThe living have won the game with 3 victories!\n";
-        reset();
-    } else if (getWinsPlayer2() >= 3) {
-        std::cout << "\nThe undead have won the game with 3 victories!\n";
-        reset();
-    } else {
-        std::cout << "The game continues. Score - Living: " << getWinsPlayer1()
-                  << ", Undead: " << getWinsPlayer2() << "\n";
-    }
-
-    for (Unit* u : fallenLivingUnits) delete u;
-    for (Unit* u : fallenUndeadUnits) delete u;
-
-    currentLivingUnits.clear();
-    currentUndeadUnits.clear();
-    selectedLivingCommander = nullptr;
-    selectedUndeadCommander = nullptr;
-
-    std::cout << "=== END OF DUEL ===\n";
 }
-
-
-
 

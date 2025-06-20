@@ -8,36 +8,19 @@
 #include "LivingUnit.h"
 #include "../../Weapons/MeleeWeapon.h"
 #include "../../Weapons/Armors/Unarmored.h"
+#include <stdexcept>
 
 class Healer : public LivingUnit {
 public:
-    Healer()
-            : LivingUnit(
-            290,
-            new Unarmored(), //The healer is unarmored
-            150,
-            new MeleeWeapon(2, "Staff"),
-            200
-    ) {}
+    Healer();
 
-    std::string getType() const override { return "Healer"; }
+    std::string getType() const override;
 
-    void heal(LivingUnit& target) {
-        if (!hasManaAttribute() || getMana() < 100) {
-            throw std::runtime_error("Not enough mana to heal.");
-        }
-        if (!target.isAlive()) {
-            throw std::runtime_error("Cannot heal a dead unit.");
-        }
+    void heal(LivingUnit& target);
 
-        target.getHealth().restore(100);  // Предполага се, че има метод restore()
-        setMana(getMana() - 100);
-    }
-
-    Unit* clone() const override {
-        return new Healer(*this);
-    }
+    Unit* clone() const override;
 };
 
 #endif //TURN_BASEDGAME_HEALER_H
+
 

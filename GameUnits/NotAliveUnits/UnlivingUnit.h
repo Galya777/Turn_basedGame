@@ -9,34 +9,23 @@
 
 class UndeadUnit : public Unit {
 public:
-    UndeadUnit(int hp, Armor* arm, int gold, int mana = -1)
-            : Unit(hp, arm, gold), hasMana(mana >= 0), manaPoints(mana) {}
+    UndeadUnit(int hp, Armor* arm, int gold, int mana = -1);
 
-    bool hasManaAttribute() const override { return hasMana; }
-    int getMana() const override { return hasMana ? manaPoints : -1; }
+    bool hasManaAttribute() const override;
+    int getMana() const override;
+    void setMana(int m) override;
+    void increaseMana(int amount) override;
 
-    void setMana(int m) override {
-        if (m < 0) throw std::invalid_argument("Mana cannot be negative");
-        manaPoints = m;
-        hasMana = true;
-    }
+    std::string getType() const override;
+    void attack(Unit& target) override; // празна по дизайн
+    Unit* clone() const override;
 
-    void increaseMana(int amount) override {
-        if (hasMana) manaPoints += amount;
-    }
+    ~UndeadUnit() override;
 
-    std::string getType() const override { return "Undead"; }
-
-    ~UndeadUnit() override = default;
-     void attack(Unit& target) override{};
-
-    Unit* clone() const override {
-        return new UndeadUnit(*this);
-    }
 private:
     bool hasMana;
     int manaPoints;
 };
 
-
 #endif //TURN_BASEDGAME_UNLIVINGUNIT_H
+

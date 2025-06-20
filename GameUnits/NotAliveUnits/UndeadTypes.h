@@ -7,23 +7,21 @@
 
 #include "UnlivingUnit.h"
 
-
 class PureUndead : public UndeadUnit {
 public:
-    PureUndead(int hp, Armor* arm, int goldCost) : UndeadUnit(hp, arm, goldCost) {}
+    PureUndead(int hp, Armor* arm, int goldCost);
 
-    void attack(Unit& target) override=0;
-    [[nodiscard]] std::string getType() const override { return "Pure Undead"; }
+    void attack(Unit& target) override = 0;
+    [[nodiscard]] std::string getType() const override;
 };
 
 class RaisedUndead : public UndeadUnit {
 public:
-    RaisedUndead(int hp, Armor* arm, int goldCost) : UndeadUnit(hp, arm, goldCost) {}
+    RaisedUndead(int hp, Armor* arm, int goldCost);
 
-    void attack(Unit& target) override=0;
-    [[nodiscard]] std::string getType() const override { return "Raised Undead"; }
+    void attack(Unit& target) override = 0;
+    [[nodiscard]] std::string getType() const override;
 };
 
-
-
 #endif //TURN_BASEDGAME_UNDEADUNIT_H
+

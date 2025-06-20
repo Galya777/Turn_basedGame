@@ -15,24 +15,13 @@ private:
     std::vector<Unit*> undeadPrototypes;
 
 public:
-    ~UndeadFactory() {
-        for (Unit* u : undeadPrototypes)
-            delete u;
-    }
+    UndeadFactory();
+    ~UndeadFactory();
 
-    void registerConversion(const std::string& fromType, Unit* undeadPrototype) {
-        sourceTypes.push_back(fromType);
-        undeadPrototypes.push_back(undeadPrototype->clone());
-    }
-
-    Unit* getUndeadFor(const std::string& fromType) const {
-        for (size_t i = 0; i < sourceTypes.size(); ++i) {
-            if (sourceTypes[i] == fromType)
-                return undeadPrototypes[i]->clone();
-        }
-        return nullptr;
-    }
+    void registerConversion(const std::string& fromType, Unit* undeadPrototype);
+    Unit* getUndeadFor(const std::string& fromType) const;
 };
 
-#endif
+#endif // TURN_BASEDGAME_UNDEADFACTORY_H
+
 

@@ -2,7 +2,6 @@
 // Created by galya777 on 09.06.25.
 //
 
-// LichCommander.h
 #ifndef TURN_BASEDGAME_LICHCOMMANDER_H
 #define TURN_BASEDGAME_LICHCOMMANDER_H
 
@@ -12,45 +11,19 @@
 
 class Lich : public Comander {
 public:
-    static bool hasRaisedThisTurn; // Контролира дали е въздигано вече
+    static bool hasRaisedThisTurn;
 
-    Lich(const std::string& name)
-            : Comander(name, 1500, 1000, new HeavyArmor(15), 500, 100) {}
-    Unit* clone() const override {
-        return new Lich(*this);
-    }
+    explicit Lich(const std::string& name);
 
+    Unit* clone() const override;
     void useAbility(std::vector<Unit*>& allies,
-                    std::vector<Unit*>& /*enemies*/,
-                    std::vector<Unit*>& fallenAllies) override {
-        if (mana >= 750 && !hasRaisedThisTurn && !fallenAllies.empty()) {
-            for (Unit* fallen : fallenAllies) {
-                std::string type = fallen->getType();
-                if (type == "Human" || type == "Healer" || type == "Paladin") {
-                    // Въздигане като нов немъртъв юнит – напр. Skeleton
-                    allies.push_back(new Skeleton());
-                } else {
-                    // Ако вече е undead – можем да го възстановим
-                    allies.push_back(fallen->clone());
-                }
-            }
-            reduceMana(750);
-            hasRaisedThisTurn = true;
-            fallenAllies.clear();
-        }
-    }
+                    std::vector<Unit*>& enemies,
+                    std::vector<Unit*>& fallenAllies) override;
 
-
-    bool canUseAbility() const override {
-        return mana >= 750 && !hasRaisedThisTurn;
-    }
-
-    std::string getCommanderType() const override {
-        return "Lich";
-    }
+    bool canUseAbility() const override;
+    std::string getCommanderType() const override;
 };
 
-
-
 #endif // TURN_BASEDGAME_LICHCOMMANDER_H
+
 

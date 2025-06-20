@@ -18,6 +18,7 @@ add_executable(Turn_basedGame
 
         # Живи единици
         GameUnits/AliveUnits/LivingUnit.cpp
+        GameUnits/AliveUnits/Knight.cpp
         GameUnits/AliveUnits/Infantryman.cpp
         GameUnits/AliveUnits/Sagittarius.cpp
         GameUnits/AliveUnits/Wizard.cpp

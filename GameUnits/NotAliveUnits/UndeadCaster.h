@@ -1,7 +1,6 @@
 //
 // Created by galya777 on 08.06.25.
 //
-
 #ifndef TURN_BASEDGAME_UNDEADCASTER_H
 #define TURN_BASEDGAME_UNDEADCASTER_H
 
@@ -13,20 +12,14 @@ protected:
     int mana;
 
 public:
-    UndeadCaster(int hp, Armor* armor, int goldCost, int manaAmount)
-            : UndeadUnit(hp, armor, goldCost), mana(manaAmount) {}
+    UndeadCaster(int hp, Armor* armor, int goldCost, int manaAmount);
 
-    virtual void useMana(int amount) {
-        if (amount <= mana) mana -= amount;
-        else throw std::runtime_error("Not enough mana!");
-    }
-    Unit* clone() const override {
-        return new UndeadCaster(*this);
-    }
-    int getMana() const { return mana; }
+    virtual void useMana(int amount);
+    int getMana() const;
+    Unit* clone() const override;
 
-    virtual ~UndeadCaster() = default;
+    virtual ~UndeadCaster();
 };
 
-
 #endif //TURN_BASEDGAME_UNDEADCASTER_H
+

@@ -2,7 +2,6 @@
 // Created by galya777 on 08.06.25.
 //
 
-// HeavyArmor.h
 #ifndef TURN_BASEDGAME_HEAVYARMOR_H
 #define TURN_BASEDGAME_HEAVYARMOR_H
 
@@ -10,20 +9,12 @@
 
 class HeavyArmor : public Armor {
 public:
-    HeavyArmor(int durability)
-            : Armor(ArmorType::HEAVY, durability) {}
+    explicit HeavyArmor(int durability);
 
-    float getReductionFactor() const override {
-        return 0.5f;
-    }
-
-    Armor* clone() const override {
-        return new HeavyArmor(*this);
-    }
-
-    void onHit() override {
-        //this armor is apparently not destroyable
-    }
+    float getReductionFactor() const override;
+    Armor* clone() const override;
+    void onHit() override;
 };
 
 #endif //TURN_BASEDGAME_HEAVYARMOR_H
+

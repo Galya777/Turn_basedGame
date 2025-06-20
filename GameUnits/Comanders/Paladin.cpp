@@ -24,7 +24,7 @@ void Paladin::useAbility(std::vector<Unit*>& allies,
                          std::vector<Unit*>&) {
     if (!canUseAbility()) return;
 
-    // Намери първата жива единица в allies, която не е на макс здраве
+
     for (Unit* ally : allies) {
         if (ally->isAlive() && ally->getHealth().getCurrent() < 5000) { // условна стойност
             ally->heal(500);  // възстанови здраве

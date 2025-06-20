@@ -6,6 +6,7 @@
 #include "../../UndeadFactory.h"
 #include <sstream>
 #include "../Base.h"
+#include "../../ConfigLoader.h"
 
 // Създаване на броня по име
 Armor* createArmorFromName(const std::string& name) {
@@ -55,9 +56,8 @@ std::string Comander::serialize() const {
     return out.str();
 }
 
-// deserialize - приема ред с формат:
-// L|Arthur,100,50,MediumArmor(30),300,25
-// И връща нов Comander*, създаден с фабрика и пълнен с данните от реда
+// Приема ред с формат:
+// Type,Name,HP,Mana,ArmorName,Gold,Power
 Comander* Comander::deserialize(const std::string& line) {
     if (line.empty() || line[0] == '#') return nullptr;
 
@@ -70,49 +70,56 @@ Comander* Comander::deserialize(const std::string& line) {
     }
 
     if (tokens.size() != 7) {
-        std::cerr << "Invalid field count (expected 7, got " << tokens.size() << "): " << line << "\n";
+        std::cerr << "[!] Invalid field count (expected 7, got " << tokens.size() << "): " << line << "\n";
         return nullptr;
     }
 
-    std::string typeName = tokens[0];
-    std::string name     = tokens[1];
+    std::string typeName   = tokens[0];
+    std::string name       = tokens[1];
 
-    int hp, mana, attackPower, goldCost;
+    int hp, mana, goldCost, attackPower;
+    std::string armorStr = tokens[4];
+
     try {
         hp          = std::stoi(tokens[2]);
         mana        = std::stoi(tokens[3]);
-        attackPower = std::stoi(tokens[4]);
         goldCost    = std::stoi(tokens[5]);
+        attackPower = std::stoi(tokens[6]);
     } catch (const std::exception& e) {
-        std::cerr << "Error parsing integers: " << e.what() << " in line: " << line << "\n";
+        std::cerr << "[!] Error parsing integers: " << e.what() << " in line: " << line << "\n";
         return nullptr;
     }
 
-    std::string armorStr = tokens[6];
-    Armor* armor = createArmorFromName(armorStr);
+    // Създаване на армор от име
+    Armor* armor = CommanderLoader::createArmor(armorStr);
+    if (!armor) {
+        std::cerr << "[!] Failed to create armor: " << armorStr << "\n";
+        return nullptr;
+    }
 
-    UndeadFactory* factory = new UndeadFactory();
-    Base* base = new Base(1000, 100, factory);
-
-    Unit* commanderUnit = base->spawnUnit(typeName, true);
-    Comander* cmd = dynamic_cast<Comander*>(commanderUnit);
-
-
-    if (!cmd) {
+    // Използваме CommanderLoader, за да създадем командир от тип
+    CommanderLoader loader;
+    Unit* unit = loader.createUnit(typeName, true);
+    if (!unit) {
         std::cerr << "[!] Unknown unit type: " << typeName << "\n";
-        delete base;
-        delete factory;
         delete armor;
         return nullptr;
     }
 
-    cmd->name = name;
+    Comander* cmd = dynamic_cast<Comander*>(unit);
+    if (!cmd) {
+        std::cerr << "[!] Failed to cast unit to Comander\n";
+        delete armor;
+        delete unit;
+        return nullptr;
+    }
+
     cmd->setHP(hp);
-    cmd->mana = mana;
-    cmd->attackPower = attackPower;
-    cmd->goldCost = goldCost;
+    cmd->setMana(mana);
+    cmd->setGoldCost(goldCost);
+
+    delete cmd->armor;
     cmd->armor = armor;
-    cmd->base = base;
 
     return cmd;
 }

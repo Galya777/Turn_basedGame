@@ -6,7 +6,6 @@
 #define TURN_BASEDGAME_FIREARM_H
 
 
-// Firearm.h
 #pragma once
 #include "Weapon.h"
 enum class FirearmType {

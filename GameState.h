@@ -69,9 +69,10 @@ public:
 
 
     void generateRandomUndeadArmy();
-    void loadCommandersFromFiles(const std::string& livingFilename, const std::string& undeadFilename);
 
     void startDuel();
+
+    void clearCommanders();
 };
 
 #endif //TURN_BASEDGAME_GAMESTATE_H
