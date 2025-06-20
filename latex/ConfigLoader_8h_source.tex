@@ -1,0 +1,32 @@
+\doxysection{Config\+Loader.\+h}
+\hypertarget{ConfigLoader_8h_source}{}\label{ConfigLoader_8h_source}\index{CLionProjects/Turn-\/basedGame/ConfigLoader.h@{CLionProjects/Turn-\/basedGame/ConfigLoader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TURN\_BASEDGAME\_COMMANDERLOADER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TURN\_BASEDGAME\_COMMANDERLOADER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameUnits/Comanders/Comander.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Weapons/Armors/Armor.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCommanderLoader}{CommanderLoader}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<Comander*>\ livingCommanders;}
+\DoxyCodeLine{00012\ \ \ \ \ std::vector<Comander*>\ undeadCommanders;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ Armor*\ createArmor(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00016\ \ \ \ \ Unit*\ createUnit(\textcolor{keyword}{const}\ std::string\&\ unitType,\ \textcolor{keywordtype}{bool}\ isCommander\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ assignUnitsToCommander(Comander*\ commander,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ unitTypes);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ commanderNameExists(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ parseCommanderLine(\textcolor{keyword}{const}\ std::string\&\ line,\ \textcolor{keywordtype}{bool}\ isLiving);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ loadCommandersFromFile(\textcolor{keyword}{const}\ std::string\&\ filename,\ \textcolor{keywordtype}{bool}\ isLiving);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Comander*>\&\ getLivingCommanders()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Comander*>\&\ getUndeadCommanders()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classCommanderLoader}{\string~CommanderLoader}}();}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TURN\_BASEDGAME\_COMMANDERLOADER\_H}}
+
+\end{DoxyCode}
